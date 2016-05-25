@@ -24,8 +24,8 @@ class php::repo::ubuntu (
 
   $version_repo = $version_real ? {
     '5.4' => 'ondrej/php5-oldstable',
-    '5.5' => 'ondrej/php5',
-    '5.6' => 'ondrej/php5-5.6',
+    '5.5' => 'ondrej/php',
+    '5.6' => 'ondrej/php',
     '7.0' => 'ondrej/php'
   }
 
