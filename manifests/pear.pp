@@ -43,12 +43,20 @@ class php::pear (
   validate_string($ensure)
   validate_string($package_name)
 
-  package { "${php::globals::package_prefix}xml":
-    ensure => present,
-  }
-  package { $package_name:
-    ensure  => $ensure,
-    require => [Class['::php::repo'],Class['::php::cli'],Package["${php::globals::package_prefix}xml"]],
+  
+  if $::operatingsystem == 'Ubuntu' {
+    package { "${php::globals::package_prefix}xml":
+      ensure => present,
+    }
+
+    package { $package_name:
+      ensure  => $ensure,
+      require => [Class['::php::repo'],Class['::php::cli'],Package["${php::globals::package_prefix}xml"]],
+    }
+  } else {
+    package { $package_name:
+      ensure  => $ensure,
+    }
   }
 
 }
