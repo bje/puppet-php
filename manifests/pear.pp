@@ -54,7 +54,7 @@ class php::pear (
   } else {
     package { $package_name:
       ensure  => $ensure,
+      require => Class['::php::cli'],
     }
   }
-
 }
