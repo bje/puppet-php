@@ -43,9 +43,8 @@ class php::pear (
   validate_string($ensure)
   validate_string($package_name)
 
-  
   if $::operatingsystem == 'Ubuntu' {
-    
+
     ensure_packages(["${php::globals::package_prefix}xml"])
 
     package { $package_name:
