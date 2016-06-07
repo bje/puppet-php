@@ -34,18 +34,8 @@ class php::repo::ubuntu (
   }
 
   if ($ppa) {
-    ::apt::ppa { "ppa:${ppa}":
-      notify => Exec['php::repo::ubuntu::apt-get update'],
-    }
+    ::apt::ppa { "ppa:${ppa}": }
   } else {
-    ::apt::ppa { "ppa:${version_repo}":
-      notify => Exec['php::repo::ubuntu::apt-get update'],
-    }
-  }
-
-  exec { 'php::repo::ubuntu::apt-get update':
-    command     => 'apt-get update',
-    path        => '/usr/bin',
-    refreshonly => true,
+    ::apt::ppa { "ppa:${version_repo}": }
   }
 }
