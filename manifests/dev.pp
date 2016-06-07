@@ -36,6 +36,7 @@ class php::dev(
   } else {
     package { $real_package:
       ensure  => $ensure,
+      require => Class['::php::packages'],
     }
   }
 }
