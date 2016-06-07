@@ -43,12 +43,12 @@ class php::pear (
   validate_string($ensure)
   validate_string($package_name)
 
-  package { "$php::globals::package_prefix-xml":
+  package { "${php::globals::package_prefix}xml":
     ensure => present,
   }
   package { $package_name:
     ensure  => $ensure,
-    require => [Class['::php::cli'],Package["$php::globals::package_prefix-xml"]],
+    require => [Class['::php::cli'],Package["${php::globals::package_prefix}xml"]],
   }
 
 }
