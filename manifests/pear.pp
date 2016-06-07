@@ -45,9 +45,8 @@ class php::pear (
 
   
   if $::operatingsystem == 'Ubuntu' {
-    package { "${php::globals::package_prefix}xml":
-      ensure => present,
-    }
+    
+    ensure_packages(["${php::globals::package_prefix}xml"])
 
     package { $package_name:
       ensure  => $ensure,
