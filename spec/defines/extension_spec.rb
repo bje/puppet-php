@@ -12,6 +12,8 @@ describe 'php::extension' do
         case facts[:osfamily]
           when 'Debian'
             etcdir = '/etc/php5/mods-available'
+          when 'Ubuntu'
+            etcdir = '/etc/php/5.6/mods-available'
           else
             etcdir = '/etc/php.d'
         end
