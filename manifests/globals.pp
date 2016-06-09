@@ -23,7 +23,7 @@ class php::globals (
     'Debian' => $::operatingsystem ? {
       'Ubuntu' => $::operatingsystemrelease ? {
         /^(16.04)$/ => '7.0',
-        default => '5.x',
+        default => '5.6',
       },
       default => '5.x',
     },
